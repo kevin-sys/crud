@@ -9,7 +9,6 @@ class UserController
 
     Map data = {
       'name': '$nameController',
-
       'email': '$emailController',
       'address': '$addressController',
 
@@ -25,9 +24,10 @@ class UserController
   }
 
   //function for update USER
-  Future<http.Response> editUser(int id, String nameController,
+  Future<http.Response> editUser(String id, String nameController,
       String emailController, String addressController) async {
-    int usernew = id;
+    int usernew = int.parse(id);
+   // int usernew = id;
     print(usernew);
     var url = Uri.parse('http://localhost:8080/update');
 
@@ -47,8 +47,9 @@ class UserController
     return response;
   }
 
-  Future<http.Response> DeleteUser(int id) async {
-    int userdelete = id;
+  Future<http.Response> DeleteUser(String id) async {
+    int userdelete = int.parse(id);
+   // int userdelete = id;
     print(userdelete);
     var url = Uri.parse('http://localhost:8080/delete/$userdelete');
     var response =
